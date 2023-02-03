@@ -84,13 +84,13 @@ def main():
                 #mixer.music.play(-1)
             #new try
                 html_string="""
-                            <audio autoplay>
+                            <audio autoplay loop>
                                 <source src="https://www.orangefreesounds.com/wp-content/uploads/2022/04/Small-bell-ringing-short-sound-effect.mp3" type="audio/mp3">
                             </audio>
                             """
                 sound = st.empty()
                 sound.markdown(html_string, unsafe_allow_html=True)
-                time.sleep(2)
+                time.sleep(6)
                 sound.empty()
        
                 
