@@ -31,7 +31,7 @@ def classify_face(face):
     face = np.expand_dims(face, axis=0)
     #face = preprocess_input(face)
     pred = model.predict(face)[0]
-    pred = np.argmax(pred, axis=1)
+    pred = np.argmax(pred)
     return pred
 
 def main():
@@ -74,7 +74,7 @@ def main():
             image = np.array(image)
             res = classify_face(image)
             #yawn_detection_dict = ('Closed','Open','no_yawn','yawn')
-            st.write(res[0])
+            st.write(res)
             if res[0] == 0:
                 st.write("Drowsiness Detected")
                 ## play sound here
