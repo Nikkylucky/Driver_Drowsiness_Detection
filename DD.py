@@ -78,6 +78,7 @@ def main():
                 st.write("Drowsiness Detected")
                 # play sound here
                 pg.init()
+                mixer.init(44100, -16,2,2048)
                 mixer.music.load('alarm.wav')
                 mixer.music.play(-1)
 
