@@ -74,15 +74,9 @@ def main():
             image = np.array(image)
             res = classify_face(image)
             #yawn_detection_dict = ('Closed','Open','no_yawn','yawn')
-            st.write(res)
-            if res == 0:
+            st.write(res[0])
+            if res[0] == 0:
                 st.write("Drowsiness Detected")
-                ## play sound here
-                #pg.init()
-                #mixer.init(44100, -16,2,2048)
-                #mixer.music.load('alarm.wav')
-                #mixer.music.play(-1)
-            #new try
                 html_string="""
                             <audio autoplay loop>
                                 <source src="https://www.orangefreesounds.com/wp-content/uploads/2022/04/Small-bell-ringing-short-sound-effect.mp3" type="audio/mp3">
@@ -94,11 +88,11 @@ def main():
                 sound.empty()
        
                 
-            if res == 1:
+            if res[0] == 1:
                 st.write("Drowsiness not Detected")
-            if res == 2:
+            if res[0] == 2:
                 st.write("No Yawn Detected")
-            if res == 3:
+            if res[0] == 3:
                 st.write("Yawn Detected")
 
 if __name__ == "__main__":
