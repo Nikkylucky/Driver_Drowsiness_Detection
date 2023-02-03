@@ -1,2 +1,4 @@
 libasound2
 alsa-utils
+avahi-utils
+snd_bcm2835
