@@ -11,10 +11,7 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from PIL import Image, ImageOps
-import pygame
-
-pygame.mixer.init()
-
+from pygame import mixer
 
 def load_lottieurl(url: str):
     r = requests.get(url)
@@ -79,8 +76,9 @@ def main():
             if res[0] == 0:
                 st.write("Drowsiness Detected")
                 # play sound here
-                sound = pygame.mixer.Sound("./alarm.mp3")
-                sound.play()
+                mixer.init()
+                mixer.music.load("./alarm.mp3")
+                mixer.music.play()
                 
             if res[0] == 1:
                 st.write("Drowsiness not Detected")
