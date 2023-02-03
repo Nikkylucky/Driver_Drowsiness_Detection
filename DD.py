@@ -83,7 +83,7 @@ def main():
                 pygame.font.init()
                 pygame.mixer.init() # add this line
                 
-                music = pygame.mixer.music.load("./alarm.mp3")
+                music = pygame.mixer.music.load("./alarm.wav")
                 pygame.mixer.music.play(-1)
 
                 
