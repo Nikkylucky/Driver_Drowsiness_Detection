@@ -75,7 +75,7 @@ def main():
             res = classify_face(image)
             #yawn_detection_dict = ('Closed','Open','no_yawn','yawn')
             st.write(res)
-            if res[0] == 0:
+            if res == 0:
                 st.write("Drowsiness Detected")
                 ## play sound here
                 #pg.init()
@@ -94,11 +94,11 @@ def main():
                 sound.empty()
        
                 
-            if res[0] == 1:
+            if res == 1:
                 st.write("Drowsiness not Detected")
-            if res[0] == 2:
+            if res == 2:
                 st.write("No Yawn Detected")
-            if res[0] == 3:
+            if res == 3:
                 st.write("Yawn Detected")
 
 if __name__ == "__main__":
