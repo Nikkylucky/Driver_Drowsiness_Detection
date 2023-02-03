@@ -90,7 +90,7 @@ def main():
                             """
                 sound = st.empty()
                 sound.markdown(html_string, unsafe_allow_html=True)
-                time.sleep(6)
+                time.sleep(10)
                 sound.empty()
        
                 
