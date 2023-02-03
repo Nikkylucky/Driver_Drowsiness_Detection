@@ -77,7 +77,7 @@ def main():
             if res[0] == 0:
                 st.write("Drowsiness Detected")
                 # play sound here
-                playsound('//alarm.mp3')
+                playsound('/alarm.mp3')
             if res[0] == 1:
                 st.write("Drowsiness not Detected")
             if res[0] == 2:
