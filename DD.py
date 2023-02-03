@@ -29,8 +29,8 @@ def classify_face(face):
     face = face.astype("float")
     face = img_to_array(face)
     face = np.expand_dims(face, axis=0)
-    face = preprocess_input(face)
-    pred = model.predict(face)
+    #face = preprocess_input(face)
+    pred = model.predict(face)[0]
     pred = np.argmax(pred, axis=1)
     return pred
 
