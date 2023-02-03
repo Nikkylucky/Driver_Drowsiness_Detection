@@ -79,6 +79,7 @@ def main():
             if res[0] == 0:
                 st.write("Drowsiness Detected")
                 # play sound here
+                pygame.init()
                 sound = pygame.mixer.music.load('./alarm.mp3')
                 pygame.mixer.sound.play(-1)
                 
