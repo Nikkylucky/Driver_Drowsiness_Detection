@@ -79,11 +79,8 @@ def main():
             if res[0] == 0:
                 st.write("Drowsiness Detected")
                 # play sound here
-                pygame.init()
-                pygame.mixer.init()
-                pygame.mixer.music.load("./alarm.mp3")
-                pygame.mixer.music.play()
-                pygame.event.wait()
+                sound = pygame.mixer.music.load('./alarm.mp3')
+                pygame.mixer.sound.play(-1)
                 
             if res[0] == 1:
                 st.write("Drowsiness not Detected")
