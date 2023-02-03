@@ -12,6 +12,9 @@ from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from PIL import Image, ImageOps
 import pygame
+import os
+
+os.environ['SDL_AUDIODRIVER'] = 'dsp'
 
 def load_lottieurl(url: str):
     r = requests.get(url)
