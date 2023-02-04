@@ -1,3 +1,0 @@
-libasound2
-alsa-utils
-avahi-utils
