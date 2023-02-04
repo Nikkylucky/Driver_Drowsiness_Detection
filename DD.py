@@ -52,17 +52,17 @@ def play_sound():
 def classify_face(face):
     resu = []
     face1 = cv2.cvtColor(face, cv2.COLOR_BGR2RGB)
-    faces = face_cascade.detectMultiScale(image=face, scaleFactor=1.3, minNeighbors=5)
-    leye = left.detectMultiScale(image=face, scaleFactor=1.3, minNeighbors=5)
-    reye = right.detectMultiScale(image=face, scaleFactor=1.3, minNeighbors=5)
+    faces = face_cascade.detectMultiScale(image=face1, scaleFactor=1.3, minNeighbors=5)
+    leye = left.detectMultiScale(image=face1, scaleFactor=1.3, minNeighbors=5)
+    reye = right.detectMultiScale(image=face1, scaleFactor=1.3, minNeighbors=5)
     for (x, y, w, h) in faces:
-        face1 = face1[y:y + h, x:x + w]
-        face1 = cv2.resize(face1, (224, 224), interpolation=cv2.INTER_AREA)
-        if np.sum([face1]) != 0:
-            face1 = face1.astype("float") / 255.0
-            face1= img_to_array(face1)
-            face1 = np.expand_dims(face1, axis=0)
-            pred = model.predict(face1)
+        face2 = face1[y:y + h, x:x + w]
+        face2 = cv2.resize(face2, (224, 224), interpolation=cv2.INTER_AREA)
+        if np.sum([face2]) != 0:
+            face2 = face2.astype("float") / 255.0
+            face2= img_to_array(face2)
+            face2 = np.expand_dims(face2, axis=0)
+            pred = model.predict(face2)
             pred1 = np.argmax(pred, axis=1)
             resu.append(pred1)
     
