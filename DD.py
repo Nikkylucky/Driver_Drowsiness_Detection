@@ -54,16 +54,16 @@ def classify_face(face):
     faces = face_cascade.detectMultiScale(image=face, scaleFactor=1.3, minNeighbors=5)
     leye = left.detectMultiScale(image=face, scaleFactor=1.3, minNeighbors=5)
     reye = right.detectMultiScale(image=face, scaleFactor=1.3, minNeighbors=5)
-    '''for (x, y, w, h) in faces:
+    for (x, y, w, h) in faces:
         face1 = face1[y:y + h, x:x + w]
-        face1 = cv2.resize(face1, (224, 224), interpolation=cv2.INTER_AREA)
+        face1 = cv2.resize(face1, (224, 224))
         if np.sum([face1]) != 0:
             face1 = face1.astype("float") / 255.0
             face1= img_to_array(face1)
             face1 = np.expand_dims(face1, axis=0)
             pred = model.predict(face1)
             pred1 = np.argmax(pred, axis=1)
-            resu.append(pred1)'''
+            resu.append(pred1)
     
     for (x1, y1, w1, h1) in leye:
         face = face[y1:y1 + h1, x1:x1 + w1]
