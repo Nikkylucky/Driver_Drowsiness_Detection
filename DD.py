@@ -1,4 +1,5 @@
 # streamlit app for driver drowsiness detection using a pre-trained model
+# streamlit app for driver drowsiness detection using a pre-trained model
 
 import streamlit as st
 from streamlit_option_menu import option_menu
@@ -56,7 +57,7 @@ def classify_face(face):
     reye = right.detectMultiScale(image=face, scaleFactor=1.3, minNeighbors=5)
     for (x, y, w, h) in faces:
         face1 = face1[y:y + h, x:x + w]
-        face1 = cv2.resize(face1, (224, 224))
+        face1 = cv2.resize(face1, (224, 224), interpolation=cv2.INTER_AREA)
         if np.sum([face1]) != 0:
             face1 = face1.astype("float") / 255.0
             face1= img_to_array(face1)
@@ -67,7 +68,7 @@ def classify_face(face):
     
     for (x1, y1, w1, h1) in leye:
         face = face[y1:y1 + h1, x1:x1 + w1]
-        face = cv2.resize(face, (224, 224))
+        face = cv2.resize(face, (224, 224), interpolation=cv2.INTER_AREA)
         if np.sum([face]) != 0:
             face = face.astype("float") / 255.0
             face = img_to_array(face)
@@ -78,7 +79,7 @@ def classify_face(face):
         
     for (x2, y2, w2, h2) in reye:
         face = face[y2:y2 + h2, x2:x2 + w2]
-        face = cv2.resize(face, (224, 224))
+        face = cv2.resize(face, (224, 224), interpolation=cv2.INTER_AREA)
         if np.sum([face]) != 0:
             face = face.astype("float") / 255.0
             face = img_to_array(face)
@@ -216,8 +217,6 @@ def main():
                     elif res[1] == 0 & res[2] == 1:
                         st.error("Drowsiness Detected in left Eye")
                         play_sound()
-            else:
-                st.error("No image found")
                 
                     
         elif choice == "Camera":
