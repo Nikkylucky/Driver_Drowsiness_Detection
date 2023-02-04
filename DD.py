@@ -67,24 +67,24 @@ def classify_face(face):
             resu.append(pred1)
     
     for (x1, y1, w1, h1) in leye:
-        face = face[y1:y1 + h1, x1:x1 + w1]
-        face = cv2.resize(face, (224, 224), interpolation=cv2.INTER_AREA)
-        if np.sum([face]) != 0:
-            face = face.astype("float") / 255.0
-            face = img_to_array(face)
-            face = np.expand_dims(face, axis=0)
-            pred = model.predict(face)
+        face3 = face1[y1:y1 + h1, x1:x1 + w1]
+        face3 = cv2.resize(face3, (224, 224), interpolation=cv2.INTER_AREA)
+        if np.sum([face3]) != 0:
+            face3 = face3.astype("float") / 255.0
+            face3 = img_to_array(face3)
+            face3 = np.expand_dims(face3, axis=0)
+            pred = model.predict(face3)
             pred2 = np.argmax(pred, axis=1)
             resu.append(pred2)
         
     for (x2, y2, w2, h2) in reye:
-        face = face[y2:y2 + h2, x2:x2 + w2]
-        face = cv2.resize(face, (224, 224), interpolation=cv2.INTER_AREA)
-        if np.sum([face]) != 0:
-            face = face.astype("float") / 255.0
-            face = img_to_array(face)
-            face = np.expand_dims(face, axis=0)
-            pred = model.predict(face)
+        face4 = face1[y2:y2 + h2, x2:x2 + w2]
+        face4 = cv2.resize(face4, (224, 224), interpolation=cv2.INTER_AREA)
+        if np.sum([face4]) != 0:
+            face4 = face4.astype("float") / 255.0
+            face4 = img_to_array(face4)
+            face4 = np.expand_dims(face4, axis=0)
+            pred = model.predict(face4)
             pred3 = np.argmax(pred, axis=1)
             resu.append(pred3)
 
