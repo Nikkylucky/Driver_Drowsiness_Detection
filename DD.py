@@ -216,6 +216,8 @@ def main():
                     elif res[1] == 0 & res[2] == 1:
                         st.error("Drowsiness Detected in left Eye")
                         play_sound()
+            else:
+                st.error("No image found")
                 
                     
         elif choice == "Camera":
