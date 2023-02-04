@@ -67,7 +67,7 @@ def classify_face(face):
     
     for (x1, y1, w1, h1) in leye:
         face = face[y1:y1 + h1, x1:x1 + w1]
-        face = cv2.resize(face, (224, 224), interpolation=cv2.INTER_AREA)
+        face = cv2.resize(face, (224, 224))
         if np.sum([face]) != 0:
             face = face.astype("float") / 255.0
             face = img_to_array(face)
@@ -78,7 +78,7 @@ def classify_face(face):
         
     for (x2, y2, w2, h2) in reye:
         face = face[y2:y2 + h2, x2:x2 + w2]
-        face = cv2.resize(face, (224, 224), interpolation=cv2.INTER_AREA)
+        face = cv2.resize(face, (224, 224))
         if np.sum([face]) != 0:
             face = face.astype("float") / 255.0
             face = img_to_array(face)
